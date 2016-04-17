@@ -8,9 +8,9 @@ public class LivroMenu {
 
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
-                + "1- Cadastrar Livros\n"
-                + "2- Listar Livros\n"
-                + "0- Voltar"
+                + "1 - Cadastrar Livros\n"
+                + "2 - Listar Livros\n"
+                + "0 - Voltar"
                 + "\n--------------------------------------");
     }    
 }

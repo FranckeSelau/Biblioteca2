@@ -11,12 +11,12 @@ public class MainMenu {
 
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
-                + "1- Menu Clientes\n"
-                + "2- Menu Livros\n"
-                + "2- Menu Retirada Livros\n"
-                + "2- Menu Entrega Livros\n"
-                + "2- Menu Relatórios\n"
-                + "0- Sair da Aplicação"
+                + "1 - Menu Clientes\n"
+                + "2 - Menu Livros\n"
+                + "3 - Menu Retirada Livros\n"
+                + "4 - Menu Entrega Livros\n"
+                + "5 - Menu Relatórios\n"
+                + "0 - Sair da Aplicação"
                 + "\n--------------------------------------");
     }
 }

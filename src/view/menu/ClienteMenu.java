@@ -7,9 +7,9 @@ public class ClienteMenu {
 
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
-                + "1- Cadastrar Clientes\n"
-                + "2- Listar Clientes\n"
-                + "0- Voltar"
+                + "1 - Cadastrar Clientes\n"
+                + "2 - Listar Clientes\n"
+                + "0 - Voltar"
                 + "\n--------------------------------------");
     }    
 }
