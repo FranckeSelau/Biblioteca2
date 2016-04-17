@@ -34,7 +34,7 @@ public class MainUI {
                 case MainMenu.OP_RETIRA:
                    // new LivroUI(listaLivros).executar();
                     break;
-                case MainMenu.OP_ENTREGA:
+                case MainMenu.OP_DEVOLUCAO:
                   //  new LivroUI(listaLivros).executar();
                     break;
                 case MainMenu.OP_RELATORIOS:
