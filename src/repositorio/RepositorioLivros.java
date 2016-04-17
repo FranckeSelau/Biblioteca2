@@ -24,18 +24,18 @@ public class RepositorioLivros {
         return listaLivros;
     }
 
-    public boolean livroExiste(String isbn) {
+    public boolean livroExiste(int isbn) {
         for (Livro livro : listaLivros) {
-            if (livro.getIsbn().equals(isbn)) {
+            if (livro.getIsbn() == isbn) {
                 return true;
             }
         }
         return false;
     }
 
-    public Livro buscarLivro(String isbn) {
+    public Livro buscarLivro(int isbn) {
         for (Livro livro : listaLivros) {
-            if (livro.getIsbn().equals(isbn)) {
+            if (livro.getIsbn() ==isbn) {
                 return livro;
            }
         }

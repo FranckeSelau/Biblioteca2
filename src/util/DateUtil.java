@@ -6,13 +6,18 @@ import java.util.Date;
 
 /**
  *
- * @author lhries
+ * @author Francke
  */
 public class DateUtil {
     
     public static Date stringToDate(String data) throws ParseException
     {
         return(new SimpleDateFormat("dd/MM/yyyy").parse(data));
+    }
+    
+     public static Date stringToYear(String data) throws ParseException // string para ano
+    {
+        return(new SimpleDateFormat("yyyy").parse(data));
     }
 
     public static Date stringToDateHour(String data) throws ParseException
@@ -22,6 +27,10 @@ public class DateUtil {
     
     public static String dateToString(Date data){
         return(new SimpleDateFormat("dd/MM/yyyy").format(data));
+    }
+    
+    public static String yearToString(Date data){
+        return(new SimpleDateFormat("yyyy").format(data)); // string para ano
     }
 
     public static String dateHourToString(Date data){
@@ -34,6 +43,12 @@ public class DateUtil {
     {
        return(data.matches("\\d{2}/\\d{2}/\\d{4}"));
     }
+    
+    public static boolean verificaAno(String data) // verifica ano
+    {
+       return(data.matches("\\d{4}"));
+    }
+    
     public static boolean verificaDataHora(String data)
     {
        return(data.matches("\\d{2}/\\d{2}/\\d{4} \\d{2}:\\d{2}"));

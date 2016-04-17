@@ -3,8 +3,11 @@ package view;
 
 import model.Livro;
 import repositorio.RepositorioLivros;
+import java.util.Date;
 import util.Console;
+import util.DateUtil;
 import view.menu.LivroMenu;
+import java.text.ParseException;
 
 /**
  *
@@ -40,26 +43,38 @@ public class LivroUI {
     }
 
     private void cadastrarLivros() {
-        String isbn = Console.scanString("ISBN: ");
+        int isbn = Console.scanInt("ISBN: ");
         if (listaLivros.buscarLivro(isbn)!=null) {
             System.err.println("ERRO! Cód ISBN " + isbn + " já existente no cadastro");
         } else {
             String nome = Console.scanString("Nome: ");
-            String descricao = Console.scanString("Descrição: ");
-            listaLivros.addLivros(new Livro(isbn, nome, descricao));
-            System.out.println("Livro " + nome + " cadastrado com sucesso!");
+            String autor = Console.scanString("Autor(es): ");
+            String editora = Console.scanString("Editora: ");
+            String anoString = Console.scanString("Ano Publicação: ");
+            Date ano;
+            try {
+                ano = DateUtil.stringToYear(anoString);
+                listaLivros.addLivros(new Livro(isbn, nome, autor, editora, ano));
+                System.out.println("Livro " + nome + " cadastrado com sucesso!");                  
+            } catch (ParseException e) {
+                System.err.println("ERRO! Ano no formato inválido!");
+            }            
         }
     }
-
+    
     public void mostrarLivros() {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "ISBN") + "\t"
                 + String.format("%-20s", "|NOME") + "\t"
-                + String.format("%-20s", "|DESCRIÇÃO"));
+                + String.format("%-20s", "|AUTOR") + "\t"
+                + String.format("%-20s", "|EDITORA") + "\t"
+                + String.format("%-5s", "|ANO"));
         for (Livro livro : listaLivros.getListaLivros()) {
             System.out.println(String.format("%-10s", livro.getIsbn()) + "\t"
                     + String.format("%-20s", "|" + livro.getNome()) + "\t"
-                    + String.format("%-20s", "|" + livro.getDescricao()));
+                    + String.format("%-20s", "|" + livro.getAutor()) + "\t"
+                    + String.format("%-20s", "|" + livro.getEditora()) + "\t"
+                    + String.format("%-5s", "|" + DateUtil.yearToString(livro.getAno()))); // converte ano data em String
         }
     }    
 }
