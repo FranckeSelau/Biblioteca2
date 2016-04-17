@@ -10,7 +10,7 @@ Funcionalidades:
 
 - Devolução de livros: registra a devolução de livros de um cliente. Durante a devolução, o livro torna-se disponível novamente na biblioteca. Verifica se o livro está com atraso e calcula o número de dias de atraso.
 
-- Relatórios: por livros, livros disponíveis, livros mais retirados, clientes que mais retiraram um livro, clientes que mais atrasaram, etc.
+- Relatórios: por livros, livros disponíveis, livros mais retirados, clientes que mais retiraram um livro, clientes que mais atrasaram, livro mais antigo.
 
 $ git status
 $ git add .

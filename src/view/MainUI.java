@@ -16,7 +16,7 @@ public class MainUI {
     public MainUI() {
         listaClientes = new RepositorioClientes();
         listaLivros = new RepositorioLivros();
-        
+        //adicionar as listas que faltam (listaRetirada, listaEntrega, ListaRelatótios)
     }
 
     public void executar() {
@@ -31,11 +31,20 @@ public class MainUI {
                 case MainMenu.OP_LIVROS:
                     new LivroUI(listaLivros).executar();
                     break;
+                case MainMenu.OP_RETIRA:
+                   // new LivroUI(listaLivros).executar();
+                    break;
+                case MainMenu.OP_ENTREGA:
+                  //  new LivroUI(listaLivros).executar();
+                    break;
+                case MainMenu.OP_RELATORIOS:
+                  //  new LivroUI(listaLivros).executar();
+                    break;
                 case MainMenu.OP_SAIR:
-                    System.out.println("Aplicação finalizada!!!");
+                    System.out.println("Aplicação finalizada!");
                     break;
                 default:
-                    System.out.println("Opção inválida..");
+                    System.err.println("ERRO! Opção inválida!");
 
             }
         } while (opcao != MainMenu.OP_SAIR);
