@@ -1,10 +1,10 @@
-
 package model;
 
 import java.util.Objects;
 
 /**
- * Classe para objetos do tipo cliente, onde serão criados os clientes da Biblioteca.
+ * Classe para objetos do tipo cliente, onde serão criados os clientes da
+ * Biblioteca.
  *
  * @author Francke
  * @since JDK 1.0
@@ -27,18 +27,39 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+    /**
+     * Retorna a matrícula
+     *
+     * @return matrícula de uma pessoa
+     */
     public String getMatricula() {
         return matricula;
     }
 
+    /**
+     * Retorna o nome
+     *
+     * @return nome de uma pessoa
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Retorna o telefone
+     *
+     * @return telefone de uma pessoa
+     */
     public String getTelefone() {
         return telefone;
-    }    
+    }
 
+    /**
+     * Faz o controle de matrículas para não inserir uma nova repetida.
+     *
+     * @return verdadeiro para uma nova matrícula única, ou falso para matrícula
+     * já existente.
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -61,13 +82,15 @@ public class Cliente {
         return hash;
     }
 
+    /**
+     * converte o objeto pessoa em String para mostrar suas informações
+     * corretamente.
+     *
+     * @return a matricula, o nome e o telefone de uma pessoa já formatado em
+     * String.
+     */
     @Override
     public String toString() {
-        return matricula+" - "+nome +", "+ telefone;
+        return matricula + " - " + nome + ", " + telefone;
     }
-    
-    
-    
-    
-    
 }
