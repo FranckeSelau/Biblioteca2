@@ -1,12 +1,26 @@
 
-
 package model;
 
 import java.util.Objects;
 
+/**
+ * Classe para objetos do tipo cliente, onde serão criados os clientes da Biblioteca.
+ *
+ * @author Francke
+ * @since JDK 1.0
+ */
 public class Cliente {
+
     private String matricula, nome, telefone;
 
+    /**
+     * Construtor para inicializar cliente
+     *
+     * @param matricula identifica a matrícula de uma pessoa.
+     * @param nome identifica o nome de uma pessoa.
+     * @param telefone identifica telefone de uma pessoa.
+     *
+     */
     public Cliente(String matricula, String nome, String telefone) {
         this.matricula = matricula;
         this.nome = nome;
