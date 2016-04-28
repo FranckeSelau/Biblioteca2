@@ -52,6 +52,12 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     public Date getRetirada() {
         return retirada;
     }
+    
+    public String getRetiradaFormatada(){
+        LocalDate formatter;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(retirada);
+    }
 
     public void setRetirada(Date retirada) {
         this.retirada = retirada;

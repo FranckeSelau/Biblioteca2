@@ -100,11 +100,16 @@ public class RetiradaUI {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "ID") + "\t"
                 + String.format("%-20s", "|LIVRO") + "\t"
-                + String.format("%-20s", "|CLIENTE"));
+                + String.format("%-20s", "|CLIENTE") + "\t"
+                + String.format("%-20s", "|RETIRADA") + "\t"
+                + String.format("%-20s", "|ENTREGA"));
         for (RetiradaLivro retirada : lista.getListaDeRetiradas()) {
             System.out.println(String.format("%-10s", retirada.getId()) + "\t"
                     + String.format("%-20s", "|" + retirada.getLivro().getNome()) + "\t"
-                    + String.format("%-20s", "|" + retirada.getCliente().getNome()));
+                    + String.format("%-20s", "|" + retirada.getCliente().getNome())+ "\t"
+                    + String.format("%-20s", "|" + retirada.getRetiradaFormatada())+ "\t"
+                    + String.format("%-20s", "|" + retirada.getEntregaFormatada())
+            );
         }
     }
 }
