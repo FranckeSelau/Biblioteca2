@@ -47,19 +47,30 @@ public class RepositorioRetirada {
                 break;
             }
         }
-        
-        
-        if (r == null) {
+
+        if (r == null && validaRetirada(retirada)) {
+            retirada.setId(getUltimoId()+1);
             retiradas.add(retirada);
             return true;
         }
         
-        if(r != null && (r.compareTo(retirada) > 0 || r.getLivroDevolvido())){
+        if(r != null && (r.compareTo(retirada) > 0 || r.getLivroDevolvido()) && validaRetirada(retirada)){
+            retirada.setId(getUltimoId()+1);
             retiradas.add(retirada);
             return true;
         }
         
         return false;
+    }
+    
+    private Boolean validaRetirada(RetiradaLivro retirada){
+        int i = 1;
+        for (RetiradaLivro ret : retiradas) {
+            if (ret.getCliente().getMatricula().equals(retirada.getCliente().getMatricula())) {
+                i++;
+            }
+        }
+        return i<=3;
     }
     
     public List<RetiradaLivro> getListaDeRetiradas(){

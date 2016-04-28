@@ -85,12 +85,51 @@ public class RetiradaTests {
         Cliente c = new Cliente("1", "Saulo Vieira", "(51)30242428");
         Date date = new Date();
         Livro l = new Livro(123, "Cronicas Gelo e Fogo", "Martin", "Abril", date);
-        retirada.setId(1);
+       
         retirada.setCliente(c);
         retirada.setLivro(l);
         retirada.setRetirada(new Date(System.currentTimeMillis()));
         
         assertEquals(true, repo.addRetirada(retirada));
         assertEquals(retirada, repo.getRetiradaById(1));
+    }
+    
+    @Test
+    public void testNaoPermiteRetiradaDeMaisDe3Livros(){
+        RetiradaLivro retirada = new RetiradaLivro();
+        RetiradaLivro retirada2 = new RetiradaLivro();
+        RetiradaLivro retirada3 = new RetiradaLivro();
+        RetiradaLivro retirada4 = new RetiradaLivro();
+        Cliente c = new Cliente("1", "Saulo Vieira", "(51)30242428");
+        Date date = new Date();
+        Livro l = new Livro(123, "Cronicas Gelo e Fogo", "Martin", "Abril", date);
+        Livro l2 = new Livro(124, "Cronicas Gelo e Fogo II", "Martin", "Abril", date);
+        Livro l3 = new Livro(125, "Cronicas Gelo e Fogo III", "Martin", "Abril", date);
+        Livro l4 = new Livro(126, "Cronicas Gelo e Fogo IV", "Martin", "Abril", date);
+        
+    
+        retirada.setCliente(c);
+        retirada.setLivro(l);
+        retirada.setRetirada(new Date(System.currentTimeMillis()));
+        
+  
+        retirada2.setCliente(c);
+        retirada2.setLivro(l2);
+        retirada2.setRetirada(new Date(System.currentTimeMillis()));
+        
+        
+        retirada3.setCliente(c);
+        retirada3.setLivro(l3);
+        retirada3.setRetirada(new Date(System.currentTimeMillis()));
+        
+        
+        retirada4.setCliente(c);
+        retirada4.setLivro(l4);
+        retirada4.setRetirada(new Date(System.currentTimeMillis()));
+        
+        assertEquals(true, repo.addRetirada(retirada));
+        assertEquals(true, repo.addRetirada(retirada2));
+        assertEquals(true, repo.addRetirada(retirada3));
+        assertEquals(false, repo.addRetirada(retirada4));
     }
 }

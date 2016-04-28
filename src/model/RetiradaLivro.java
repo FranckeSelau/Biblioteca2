@@ -17,6 +17,7 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     public RetiradaLivro() {
         long DAY_IN_MS = 1000 * 60 * 60 * 24;
         this.setEntrega(new Date(System.currentTimeMillis() + (7 * DAY_IN_MS)));
+       
     }
 
     public Date getEntrega() {
