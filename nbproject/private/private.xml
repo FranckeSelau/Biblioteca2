@@ -3,22 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/Users/saulovieira/Documents/Biblioteca/test/RetiradaTests.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/model/Livro.java</file>
-            <file>file:/Users/saulovieira/Documents/Biblioteca/src/view/menu/MainMenu.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/src/view/MainUI.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/src/model/DevolucaoLivro.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/test/LivroTests.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/src/repositorio/RepositorioDevolucao.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/test/DevolucaoTest.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/src/model/Cliente.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/view/menu/RetiradaMenu.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/test/ClienteTests.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/repositorio/RepositorioRetirada.java</file>
+            <file>file:/Users/saulovieira/Documents/Biblioteca/src/view/DevolucaoUI.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/biblioteca/Biblioteca.java</file>
-            <file>file:/Users/saulovieira/Documents/Biblioteca/test/LivroTests.java</file>
-            <file>file:/Users/saulovieira/Documents/Biblioteca/src/model/RetiradaLivro.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/view/RetiradaUI.java</file>
             <file>file:/Users/saulovieira/Documents/Biblioteca/src/repositorio/RepositorioLivros.java</file>
-            <file>file:/Users/saulovieira/Documents/Biblioteca/src/model/Cliente.java</file>
-=======
-            <file>file:/C:/@Faculdade%20Senac%20-%20ADS/ADS%20-%203º%20Semestre/LabProgramacao2%20-%20Ries/Biblioteca/src/biblioteca/Biblioteca.java</file>
->>>>>>> f159703e7d9ce289f42b7395bcc201399df30027
         </group>
     </open-files>
 </project-private>

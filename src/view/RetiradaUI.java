@@ -41,8 +41,8 @@ public class RetiradaUI {
                     case RetiradaMenu.OP_RETIRADA:
                         retirarLivro();
                         break;
-                    case RetiradaMenu.OP_AGENDAR:
-                        agendarRetirada();
+                    case RetiradaMenu.OP_LISTAR:
+                        mostrarRetirada();
                         break;
                     case RetiradaMenu.OP_VOLTAR:
                         System.out.println("Retornando ao menu principal..");
@@ -75,7 +75,7 @@ public class RetiradaUI {
         if(!ok){
             throw new Exception("Erro! Livro não disponível para ser emprestado.");
         }
-        System.out.println("Livro "+livro.getNome()+" emprestado para "+cliente.getNome()+", devolução em: ");
+        System.out.println("Livro "+livro.getNome()+" emprestado para "+cliente.getNome()+", devolução em: "+retirada.getEntregaFormatada());
     }
     
     private Cliente getCliente(String matricula) throws Exception{
@@ -96,8 +96,17 @@ public class RetiradaUI {
         return livro;
     }
 
-    private void agendarRetirada() {
-
+    public void mostrarRetirada() {
+        System.out.println("--------------------------------------\n");
+        System.out.println(String.format("%-10s", "ID") + "\t"
+                + String.format("%-20s", "|LIVRO") + "\t"
+                + String.format("%-20s", "|CLIENTE"));
+        for (RetiradaLivro retirada : lista.getListaDeRetiradas()) {
+            System.out.println(String.format("%-10s", retirada.getId()) + "\t"
+                    + String.format("%-20s", "|" + retirada.getLivro().getNome()) + "\t"
+                    + String.format("%-20s", "|" + retirada.getCliente().getNome()));
+        }
     }
-
 }
+
+

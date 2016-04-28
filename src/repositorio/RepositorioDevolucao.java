@@ -1,13 +1,13 @@
 package repositorio;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import model.DevolucaoLivro;
 import model.RetiradaLivro;
-=======
+
 /**
  * Classe para repositório de devolução de livros, onde serão arazenados os clientes
  * que devolveram livros.
@@ -15,8 +15,6 @@ import model.RetiradaLivro;
  * @author Francke
  * @since JDK 1.0
  */
->>>>>>> f159703e7d9ce289f42b7395bcc201399df30027
-
 public class RepositorioDevolucao {
 
     private List<DevolucaoLivro> devolucoes;
