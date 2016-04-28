@@ -1,10 +1,19 @@
 package repositorio;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import model.RetiradaLivro;
 
+=======
+/**
+ * Classe para repositório do tipo retirada de, onde serão armazenados os livros emprestados.
+ *
+ * @author Francke
+ * @since JDK 1.0
+ */
+>>>>>>> f159703e7d9ce289f42b7395bcc201399df30027
 public class RepositorioRetirada {
 
     private List<RetiradaLivro> retiradas;
