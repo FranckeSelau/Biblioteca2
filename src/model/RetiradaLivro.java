@@ -9,6 +9,7 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
 
     private int id;
     private Date retirada;
+    private Date devolvido;
     private Date entrega;
     private Cliente cliente;
     private Livro livro;
@@ -17,7 +18,7 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     public RetiradaLivro() {
         long DAY_IN_MS = 1000 * 60 * 60 * 24;
         this.setEntrega(new Date(System.currentTimeMillis() + (7 * DAY_IN_MS)));
-       
+
     }
 
     public Date getEntrega() {
@@ -53,8 +54,27 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     public Date getRetirada() {
         return retirada;
     }
-    
-    public String getRetiradaFormatada(){
+
+    public Date getDevolvido() {
+        return devolvido;
+    }
+
+    public void setDevolvido(Date devolvido) {
+        this.devolvido = devolvido;
+    }
+
+    public String getDevolvidoFormatada() {
+        if (devolvido != null) {
+            LocalDate formatter;
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            return df.format(devolvido);
+        } else {
+            return "";
+        }
+
+    }
+
+    public String getRetiradaFormatada() {
         LocalDate formatter;
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         return df.format(retirada);

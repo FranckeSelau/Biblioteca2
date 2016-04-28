@@ -47,14 +47,23 @@ public class RetiradaTests {
     public void testRetiraLivroCorretamente() {
         RetiradaLivro retirada = new RetiradaLivro();
         Cliente c = new Cliente("1", "Saulo Vieira", "(51)30242428");
+        Cliente c2 = new Cliente("2", "Francke", "(51)30242428");
         Date date = new Date();
         Livro l = new Livro(123, "Cronicas Gelo e Fogo", "Martin", "Abril", date);
         retirada.setCliente(c);
         retirada.setLivro(l);
-        retirada.setRetirada(new Date(System.currentTimeMillis()));
+        retirada.setRetirada(date);
         
+        RetiradaLivro retirada2 = new RetiradaLivro();
+        retirada2.setCliente(c2);
+        retirada2.setLivro(l);
+        retirada2.setRetirada(date);
+        //Verifica primeira retirada
         assertEquals(true, repo.addRetirada(retirada));
+        //Verifica mesmo usuario retirando mesmo livro
         assertEquals(false, repo.addRetirada(retirada));
+        //Verifica 
+        assertEquals(false, repo.addRetirada(retirada2));
     }
     
     @Test

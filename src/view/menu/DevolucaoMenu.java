@@ -16,7 +16,7 @@ public class DevolucaoMenu {
 
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
-                + "1 - Registrar Retirada\n"
+                + "1 - Registrar Devolução\n"
                 + "0 - Voltar"
                 + "\n--------------------------------------");
     }      

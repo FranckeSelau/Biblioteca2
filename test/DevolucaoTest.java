@@ -66,7 +66,7 @@ public class DevolucaoTest {
     }
     
     @Test
-    public void testFalhaAoDevolverLivroNaoEncontrado(){
+    public void testAoRetirarLivroNaoDevolvido(){
         RetiradaLivro retirada = new RetiradaLivro();
         Cliente c = new Cliente("1", "Saulo Vieira", "(51)30242428");
         Date date = new Date();
@@ -77,8 +77,10 @@ public class DevolucaoTest {
         retirada.setRetirada(new Date(System.currentTimeMillis()));
         retiradaRepo.addRetirada(retirada);
         DevolucaoLivro devolucao = new DevolucaoLivro();
-        assertEquals(false, repo.addDevolucao(2, devolucao));
+        assertEquals(true, repo.addDevolucao(1, devolucao));
     }
+    
+    
     
     @Test
     public void testFalhaAoDevolverLivroDuasVezes(){

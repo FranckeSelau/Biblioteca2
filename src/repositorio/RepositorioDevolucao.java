@@ -33,6 +33,7 @@ public class RepositorioDevolucao {
             RetiradaLivro ret = new RetiradaLivro();
             ret.setEntrega(new Date(System.currentTimeMillis()));
             retirada.setLivroDevolvido(true);
+            retirada.setDevolvido(new Date(System.currentTimeMillis()));
             return true;
         }
         

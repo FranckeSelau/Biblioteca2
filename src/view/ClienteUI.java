@@ -1,5 +1,6 @@
 package view;
 
+import java.util.InputMismatchException;
 import model.Cliente;
 import repositorio.RepositorioClientes;
 import util.Console;
@@ -21,7 +22,11 @@ public class ClienteUI {
         int opcao = 0;
         do {
             System.out.println(ClienteMenu.getOpcoes());
-            opcao = Console.scanInt("Digite sua opção: ");
+            try{
+                 opcao = Console.scanInt("Digite sua opção: ");
+            }catch (InputMismatchException e) {
+                   opcao = -1;
+            }
             switch (opcao) {
                 case ClienteMenu.OP_CADASTRAR:
                     cadastrarCliente();

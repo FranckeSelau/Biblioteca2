@@ -32,17 +32,15 @@ public class RepositorioRetirada {
     }
     
     public int getUltimoId() {
-        int idRetirada = 0;
-        for (RetiradaLivro ret : retiradas) {
-            idRetirada = ret.getId();
-        }
-        return idRetirada;
+        
+        return retiradas.size();
     }
 
     public boolean addRetirada(RetiradaLivro retirada) {
         RetiradaLivro r = null;
+        Collections.reverse(retiradas);
         for (RetiradaLivro ret : retiradas) {
-            if (ret.getLivro().getIsbn() == retirada.getLivro().getIsbn()) {
+            if ((ret.getLivro().getIsbn() == retirada.getLivro().getIsbn()) && !ret.getLivroDevolvido()) {
                 r = ret;
                 break;
             }
@@ -54,7 +52,7 @@ public class RepositorioRetirada {
             return true;
         }
         
-        if(r != null && (r.compareTo(retirada) > 0 || r.getLivroDevolvido()) && validaRetirada(retirada)){
+        if(r != null && (r.compareTo(retirada) < 0 && r.getLivroDevolvido()) && validaRetirada(retirada)){
             retirada.setId(getUltimoId()+1);
             retiradas.add(retirada);
             return true;
@@ -64,13 +62,13 @@ public class RepositorioRetirada {
     }
     
     private Boolean validaRetirada(RetiradaLivro retirada){
-        int i = 1;
+        int i = 0;
         for (RetiradaLivro ret : retiradas) {
             if (ret.getCliente().getMatricula().equals(retirada.getCliente().getMatricula())) {
                 i++;
             }
         }
-        return i<=3;
+        return i < 3;
     }
     
     public List<RetiradaLivro> getListaDeRetiradas(){

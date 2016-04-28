@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.util.InputMismatchException;
 import model.DevolucaoLivro;
 import repositorio.RepositorioDevolucao;
 import repositorio.RepositorioRetirada;
@@ -29,7 +30,11 @@ public class DevolucaoUI {
         int opcao = 0;
         do {
             System.out.println(DevolucaoMenu.getOpcoes());
-            opcao = Console.scanInt("Digite sua opção: ");
+            try{
+                 opcao = Console.scanInt("Digite sua opção: ");
+            }catch (InputMismatchException e) {
+                   opcao = -1;
+            }
             try {
                 switch (opcao) {
                     case DevolucaoMenu.OP_RETIRADA:

@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +25,12 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
 
     public Date getDevolucao() {
         return devolucao;
+    }
+    
+    public String getDevolucaoFormatada(){
+        LocalDate formatter;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(devolucao);
     }
 
     public void setDevolucao(Date devolucao) throws Exception {

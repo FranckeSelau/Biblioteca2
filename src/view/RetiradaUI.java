@@ -6,6 +6,7 @@
 package view;
 
 import java.util.Date;
+import java.util.InputMismatchException;
 import model.Cliente;
 import model.Livro;
 import model.RetiradaLivro;
@@ -35,7 +36,11 @@ public class RetiradaUI {
         int opcao = 0;
         do {
             System.out.println(RetiradaMenu.getOpcoes());
-            opcao = Console.scanInt("Digite sua opção: ");
+            try {
+                opcao = Console.scanInt("Digite sua opção: ");
+            } catch (InputMismatchException e) {
+                opcao = -1;
+            }
             try {
                 switch (opcao) {
                     case RetiradaMenu.OP_RETIRADA:
@@ -58,41 +63,45 @@ public class RetiradaUI {
     }
 
     private void retirarLivro() throws Exception {
-        //Busca o cliente pela matrícula
-        String matricula = Console.scanString("Informe a matrícula do usuario: ");
-        Cliente cliente = getCliente(matricula);
-        //Busca o livro pela isbn
-        String isbn = Console.scanString("ISBN do livro a ser retirado: ");
-        Livro livro = getLivro(Integer.parseInt(isbn));
-        //Valida se o livro a ser retirado está disponível
-       
-        RetiradaLivro retirada = new RetiradaLivro();
-        retirada.setId(lista.getUltimoId()+1);
-        retirada.setLivro(livro);
-        retirada.setCliente(cliente);
-        retirada.setRetirada(new Date(System.currentTimeMillis()));
-        Boolean ok = lista.addRetirada(retirada);
-        if(!ok){
-            throw new Exception("Erro! Livro não disponível para ser emprestado.");
+        try {
+            //Busca o cliente pela matrícula
+            String matricula = Console.scanString("Informe a matrícula do usuario: ");
+            Cliente cliente = getCliente(matricula);
+            //Busca o livro pela isbn
+            String isbn = Console.scanString("ISBN do livro a ser retirado: ");
+            Livro livro = getLivro(Integer.parseInt(isbn));
+            //Valida se o livro a ser retirado está disponível
+
+            RetiradaLivro retirada = new RetiradaLivro();
+            retirada.setId(lista.getUltimoId() + 1);
+            retirada.setLivro(livro);
+            retirada.setCliente(cliente);
+            retirada.setRetirada(new Date(System.currentTimeMillis()));
+            Boolean ok = lista.addRetirada(retirada);
+            if (!ok) {
+                throw new Exception("Erro! Livro não disponível para ser emprestado.");
+            }
+            System.out.println("Livro " + livro.getNome() + " emprestado para " + cliente.getNome() + ", devolução em: " + retirada.getEntregaFormatada());
+        } catch (InputMismatchException e) {
+            System.err.println("ERRO! O ISBN deve ser numérico!");
         }
-        System.out.println("Livro "+livro.getNome()+" emprestado para "+cliente.getNome()+", devolução em: "+retirada.getEntregaFormatada());
     }
-    
-    private Cliente getCliente(String matricula) throws Exception{
+
+    private Cliente getCliente(String matricula) throws Exception {
         Cliente cliente = this.clientes.buscarCliente(matricula);
         if (cliente == null) {
             throw new Exception("Erro! Cliente não encontrado.");
         }
-        System.out.println("Cliente selecionado: "+cliente.getNome());
+        System.out.println("Cliente selecionado: " + cliente.getNome());
         return cliente;
     }
-    
-    private Livro getLivro(int isbn) throws Exception{
+
+    private Livro getLivro(int isbn) throws Exception {
         Livro livro = this.livros.buscarLivro(isbn);
         if (livro == null) {
             throw new Exception("Erro! Livro não encontrado.");
         }
-        System.out.println("Livro selecionado: "+livro.getNome());
+        System.out.println("Livro selecionado: " + livro.getNome());
         return livro;
     }
 
@@ -100,18 +109,22 @@ public class RetiradaUI {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "ID") + "\t"
                 + String.format("%-20s", "|LIVRO") + "\t"
+                + String.format("%-20s", "|DISP") + "\t"
                 + String.format("%-20s", "|CLIENTE") + "\t"
                 + String.format("%-20s", "|RETIRADA") + "\t"
-                + String.format("%-20s", "|ENTREGA"));
+                + String.format("%-20s", "|ENTREGA") + "\t"
+                + String.format("%-20s", "|DEVOLVIDO")
+        );
         for (RetiradaLivro retirada : lista.getListaDeRetiradas()) {
+            String disponivel = retirada.getLivroDevolvido() ? "Sim" : "Não";
             System.out.println(String.format("%-10s", retirada.getId()) + "\t"
                     + String.format("%-20s", "|" + retirada.getLivro().getNome()) + "\t"
-                    + String.format("%-20s", "|" + retirada.getCliente().getNome())+ "\t"
-                    + String.format("%-20s", "|" + retirada.getRetiradaFormatada())+ "\t"
-                    + String.format("%-20s", "|" + retirada.getEntregaFormatada())
+                    + String.format("%-20s", "|" + disponivel) + "\t"
+                    + String.format("%-20s", "|" + retirada.getCliente().getNome()) + "\t"
+                    + String.format("%-20s", "|" + retirada.getRetiradaFormatada()) + "\t"
+                    + String.format("%-20s", "|" + retirada.getEntregaFormatada()) + "\t"
+                    + String.format("%-20s", "|" + retirada.getDevolvidoFormatada())
             );
         }
     }
 }
-
-
