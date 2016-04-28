@@ -2,6 +2,8 @@ package view;
 
 import repositorio.RepositorioLivros;
 import repositorio.RepositorioClientes;
+import repositorio.RepositorioDevolucao;
+import repositorio.RepositorioRetirada;
 import util.Console;
 import view.menu.MainMenu;
 
@@ -12,10 +14,14 @@ import view.menu.MainMenu;
 public class MainUI {
     private RepositorioClientes listaClientes;
     private RepositorioLivros listaLivros;
+    private RepositorioRetirada listaRetiradas;
+    private RepositorioDevolucao listaDevolucoes;
     
     public MainUI() {
         listaClientes = new RepositorioClientes();
         listaLivros = new RepositorioLivros();
+        listaRetiradas = new RepositorioRetirada();
+        listaDevolucoes = new RepositorioDevolucao(listaRetiradas);
         //adicionar as listas que faltam (listaRetirada, listaEntrega, ListaRelatótios)
     }
 
@@ -32,10 +38,10 @@ public class MainUI {
                     new LivroUI(listaLivros).executar();
                     break;
                 case MainMenu.OP_RETIRA:
-                   // new LivroUI(listaLivros).executar();
+                    new RetiradaUI(listaRetiradas, listaLivros, listaClientes).executar();
                     break;
                 case MainMenu.OP_DEVOLUCAO:
-                  //  new LivroUI(listaLivros).executar();
+                    new DevolucaoUI(listaRetiradas, listaDevolucoes).executar();
                     break;
                 case MainMenu.OP_RELATORIOS:
                   //  new LivroUI(listaLivros).executar();
