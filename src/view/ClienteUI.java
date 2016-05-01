@@ -6,7 +6,6 @@ import repositorio.RepositorioClientes;
 import util.Console;
 import view.menu.ClienteMenu;
 
-
 /**
  * Classe para Menu de Clientes - Interface com o Usuário
  *
@@ -15,8 +14,16 @@ import view.menu.ClienteMenu;
  */
 public class ClienteUI {
 
+    /**
+    * Lista novos Clientes.
+    */
     private RepositorioClientes lista;
-
+    
+    /**
+     * Construtor para inicializar lista menu cliente
+     *
+     * @param lista de clientes.
+     */
     public ClienteUI(RepositorioClientes lista) {
         this.lista = lista;
     }

@@ -10,17 +10,31 @@ import java.text.ParseException;
 import java.util.InputMismatchException;
 
 /**
+ * Classe para Menu de Livros - Interface com o Usuário
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class LivroUI {
 
+    /**
+    * Lista novos Livros.
+    */
     private RepositorioLivros listaLivros;
-
+    
+    /**
+     * Construtor para inicializar lista menu livros
+     *
+     * @param lista de livros.
+     */
     public LivroUI(RepositorioLivros lista) {
         this.listaLivros = lista;
     }
 
+    /**
+     * Executa as opções do Menu Livros.
+     *
+     */
     public void executar() {
         int opcao = 0;
         do {
@@ -48,6 +62,15 @@ public class LivroUI {
         } while (opcao != LivroMenu.OP_VOLTAR);
     }
 
+    /**
+     * Cadastra novo Livro.
+     *
+     * @param isbn, recebe o ISBN de um novo livro.
+     * @param nome, recebe o nome de um novo livro.
+     * @param autor, recebe o autor de um novo livro.
+     * @param editora, recebe a editora de um novo livro.
+     * @param ano, recebe o ano de um novo livro.
+     */
     private void cadastrarLivros() {
         try {
             int isbn = Console.scanInt("ISBN: ");
@@ -72,6 +95,11 @@ public class LivroUI {
         }
     }
 
+    /**
+     * Mostra novo livro.
+     *
+     * imprime os livros formatados em Strings
+     */
     public void mostrarLivros() {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "ISBN") + "\t"
