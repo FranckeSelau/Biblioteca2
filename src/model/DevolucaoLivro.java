@@ -40,7 +40,8 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
     /**
      * Método que verifica o atraso na devolução de um livro
      *
-     * @param data de devolução.
+     * @param devolucao, verifica data de devolução.
+     * @throws java.lang.Exception
      */
     public void setDevolucao(Date devolucao) throws Exception {
         if(retirada == null){
@@ -94,7 +95,7 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
     /**
      * Método que informa a retirada a ser devolvida
      *
-     * @param retirada a ser devolvida.
+     * @return atraso, data em atraso.
      */
     public int getAtraso() {
         return atraso;

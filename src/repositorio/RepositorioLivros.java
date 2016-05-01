@@ -28,7 +28,7 @@ public class RepositorioLivros {
     /**
      * adiciona novos livros ao repositório
      *
-     * @param novo livro, adiciona um novo livro.
+     * @param livros, adiciona um novo livro.
      * @return novo livro a lista
      */
     public boolean addLivros(Livro livros) {
@@ -47,6 +47,7 @@ public class RepositorioLivros {
     /**
      * verifica livros existentes
      *
+     * @param isbn, dos livros a consultar.
      * @return verdadeiro para livros ja existentes ou falso caso contrário.
      */
     public boolean livroExiste(int isbn) {

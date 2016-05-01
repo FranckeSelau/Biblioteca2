@@ -28,7 +28,7 @@ public class RepositorioClientes {
     /**
      * adiciona novos clientes ao repositório
      *
-     * @param novo cliente, cria um novo cliente.
+     * @param cliente, cria um novo cliente.
      * @return novo cliente a lista
      */
     public boolean addClientes(Cliente cliente) {
@@ -47,6 +47,7 @@ public class RepositorioClientes {
     /**
      * verifica clientes existentes
      *
+     * @param matricula, verifica se a matrícula não é repetida.
      * @return verdadeiro para clientes ja existentes ou falso caso contrário.
      */
     public boolean clienteExiste(String matricula) {

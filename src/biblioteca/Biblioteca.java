@@ -13,6 +13,7 @@ public class Biblioteca {
     /**
      * Executa classe Main
      *
+     * @param args para execução.
      */
     public static void main(String[] args) {
         new MainUI().executar();
