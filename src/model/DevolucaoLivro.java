@@ -38,7 +38,7 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
             throw new Exception("É necessário setar o valor para retirada antes de devolução.");
         }
         this.devolucao = devolucao;
-        long diff =  devolucao.getTime() - retirada.getEntrega().getTime();
+        long diff =  devolucao.getTime() - retirada.getDevolvido().getTime();
         if(diff < 0){
             atraso = 0;
         }else{

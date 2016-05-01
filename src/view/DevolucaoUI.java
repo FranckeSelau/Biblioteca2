@@ -58,6 +58,7 @@ public class DevolucaoUI {
          //Busca o cliente pela matrícula
         Integer idRetirada = Integer.parseInt(Console.scanString("Informe o identificador da retirada: "));
         if(listaDevolucoes.addDevolucao(idRetirada, new DevolucaoLivro())){
+            
             System.out.println("Livro devolvido com sucesso!");
         }else{
             throw new Exception("Livro não encontrado ou já devolvido.");
