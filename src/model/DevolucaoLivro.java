@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Classe para objetos do tipo devolução de livros, onde são instanciados os eventos de devoluções
- *
+ * Implementa FrameWork CompareTo
  * @author Francke
  * @since JDK 1.0
  */
@@ -100,6 +100,11 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
         return atraso;
     }  
     
+    /**
+     * Compara se um livro ja foi devolvido antes de realizar a devolução do mesmo.
+     *
+     * @return verdadeiro ou falso para o livro a ser devolvido.
+     */
     @Override
     public int compareTo(DevolucaoLivro o) {
         return(this.getDevolucao().compareTo(o.getDevolucao()));
