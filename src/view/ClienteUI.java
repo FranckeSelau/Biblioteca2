@@ -6,9 +6,12 @@ import repositorio.RepositorioClientes;
 import util.Console;
 import view.menu.ClienteMenu;
 
+
 /**
+ * Classe para Menu de Clientes - Interface com o Usuário
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class ClienteUI {
 
@@ -18,6 +21,10 @@ public class ClienteUI {
         this.lista = lista;
     }
 
+    /**
+     * Executa as opções do Menu Cliente.
+     *
+     */
     public void executar() {
         int opcao = 0;
         do {
@@ -43,7 +50,14 @@ public class ClienteUI {
             }
         } while (opcao != ClienteMenu.OP_VOLTAR);
     }
-
+    
+    /**
+     * Cadastra novo Cliente.
+     *
+     * @param matricula, recebe a matrícula de um novo cliente.
+     * @param nome, recebe o nome de um novo cliente.
+     * @param telefone, recebe telefone de um novo cliente.
+     */
     private void cadastrarCliente() {
         String matricula = Console.scanString("Matrícula: ");
         if (lista.clienteExiste(matricula)) {
@@ -56,6 +70,11 @@ public class ClienteUI {
         }
     }
 
+    /**
+     * Mostra novo Cliente.
+     *
+     * imprime os clientes formatados em Strings
+     */
 public void mostrarClientes() {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "MATRÍCULA") + "\t"
