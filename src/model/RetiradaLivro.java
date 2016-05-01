@@ -2,7 +2,6 @@ package model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class RetiradaLivro implements Comparable<RetiradaLivro> {
@@ -26,7 +25,6 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     }
 
     public String getEntregaFormatada() {
-        LocalDate formatter;
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         return df.format(entrega);
     }
@@ -65,17 +63,14 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
 
     public String getDevolvidoFormatada() {
         if (devolvido != null) {
-            LocalDate formatter;
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             return df.format(devolvido);
         } else {
             return "";
         }
-
     }
 
     public String getRetiradaFormatada() {
-        LocalDate formatter;
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         return df.format(retirada);
     }
@@ -108,5 +103,4 @@ public class RetiradaLivro implements Comparable<RetiradaLivro> {
     public Object getHorario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

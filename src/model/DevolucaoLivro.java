@@ -1,20 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Classe para objetos do tipo devolução de livros, onde são instanciados os eventos de devoluções
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
     private Date devolucao;    
@@ -43,8 +40,7 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
             atraso = 0;
         }else{
             atraso = (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-        }
-        
+        }        
     }
 
     public Livro getLivro() {
@@ -65,13 +61,10 @@ public class DevolucaoLivro implements Comparable<DevolucaoLivro> {
 
     public int getAtraso() {
         return atraso;
-    }
-
-  
+    }  
     
     @Override
     public int compareTo(DevolucaoLivro o) {
         return(this.getDevolucao().compareTo(o.getDevolucao()));
-    }
-    
+    }   
 }
