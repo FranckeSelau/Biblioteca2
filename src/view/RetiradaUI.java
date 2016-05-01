@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Date;
@@ -17,8 +12,10 @@ import util.Console;
 import view.menu.RetiradaMenu;
 
 /**
+ * Classe para Menu Retirada de Livros - Interface com o Usuário
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class RetiradaUI {
 
@@ -26,12 +23,23 @@ public class RetiradaUI {
     private RepositorioLivros livros;
     private RepositorioClientes clientes;
 
+     /**
+     * Construtor para inicializar Menu Retirada de Livros
+     *
+     * @param lista de clientes e livros.
+     * @param livros livros.
+     * @param clientes clientes.
+     */
     public RetiradaUI(RepositorioRetirada lista, RepositorioLivros livros, RepositorioClientes clientes) {
         this.lista = lista;
         this.livros = livros;
         this.clientes = clientes;
     }
 
+    /**
+     * Executa as opções do Menu Retirada de Livros.
+     *
+     */
     public void executar() {
         int opcao = 0;
         do {
@@ -62,6 +70,9 @@ public class RetiradaUI {
         } while (opcao != RetiradaMenu.OP_VOLTAR);
     }
 
+    /**
+     * Cadastra nova retirada de Livro.
+     */
     private void retirarLivro() throws Exception {
         try {
             //Busca o cliente pela matrícula
@@ -87,6 +98,12 @@ public class RetiradaUI {
         }
     }
 
+    /**
+     * Retorna cliente através da matrícula.
+     * 
+     * @param matricula, insere matrícula de um cliente.
+     * @return cliente selecionado.
+     */
     private Cliente getCliente(String matricula) throws Exception {
         Cliente cliente = this.clientes.buscarCliente(matricula);
         if (cliente == null) {
@@ -96,6 +113,12 @@ public class RetiradaUI {
         return cliente;
     }
 
+    /**
+     * Retorna livro através da ISBN.
+     * 
+     * @param isbn, insere isbn de um livro.
+     * @return livro selecionado.
+     */
     private Livro getLivro(int isbn) throws Exception {
         Livro livro = this.livros.buscarLivro(isbn);
         if (livro == null) {
@@ -105,6 +128,11 @@ public class RetiradaUI {
         return livro;
     }
 
+    /**
+     * Mostra retirada dos Clientes.
+     *
+     * imprime as retiradas dos clientes formatados em Strings
+     */
     public void mostrarRetirada() {
         System.out.println("--------------------------------------\n");
         System.out.println(String.format("%-10s", "ID") + "\t"

@@ -12,8 +12,10 @@ import util.Console;
 import view.menu.MainMenu;
 
 /**
+ * Classe para Menu Principal - Interface com o Usuário
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class MainUI {
 
@@ -22,6 +24,9 @@ public class MainUI {
     private RepositorioRetirada listaRetiradas;
     private RepositorioDevolucao listaDevolucoes;
 
+    /**
+     * Construtor para Menu Principal
+     */
     public MainUI() {
         Cliente c = new Cliente("1", "Saulo", "12323432");
         Cliente c2 = new Cliente("2", "Francke", "12323432");
@@ -45,6 +50,10 @@ public class MainUI {
         //adicionar as listas que faltam (listaRetirada, listaEntrega, ListaRelatótios)
     }
 
+    /**
+     * Executa as opções do Menu Principal.
+     *
+     */
     public void executar() {
         int opcao = 0;
         do {

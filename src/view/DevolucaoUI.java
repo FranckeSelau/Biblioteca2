@@ -8,7 +8,7 @@ import util.Console;
 import view.menu.DevolucaoMenu;
 
 /**
- * Classe para Menu Retirada de Livros - Interface com o Usuário
+ * Classe para Menu Devolução de Livros - Interface com o Usuário
  *
  * @author Francke
  * @since JDK 1.0
@@ -19,7 +19,7 @@ public class DevolucaoUI {
     private RepositorioDevolucao listaDevolucoes;
     
     /**
-     * Construtor para inicializar Menu Retirada de Livros
+     * Construtor para inicializar Menu Devolução de Livros
      *
      * @param listaRetiradas de clientes e livros.
      * @param listaDevolucoes de clientes e livros.
@@ -72,7 +72,6 @@ public class DevolucaoUI {
             System.out.println("Livro devolvido com sucesso!");
         }else{
             throw new Exception("Livro não encontrado ou já devolvido.");
-        }
-            
+        }            
     }
 }
