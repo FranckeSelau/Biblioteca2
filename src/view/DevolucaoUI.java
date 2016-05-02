@@ -44,7 +44,7 @@ public class DevolucaoUI {
             }
             try {
                 switch (opcao) {
-                    case DevolucaoMenu.OP_RETIRADA:
+                    case DevolucaoMenu.OP_DEVOLUCAO:
                         devolverLivro();
                         break;
                     

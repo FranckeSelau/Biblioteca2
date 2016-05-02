@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.menu;
 
 /**
+ * Classe para interação Menu Devolução Livros
  *
  * @author Francke
+ * @since JDK 1.0
  */
 public class DevolucaoMenu {
     
-    public static final int OP_RETIRADA = 1;
+    public static final int OP_DEVOLUCAO = 1;
     public static final int OP_VOLTAR = 0;
 
+    /**
+     * Retorna as opções do Menu Devolução Livros.
+     *
+     * @return opções para o menu Devolução
+     */
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
                 + "1 - Registrar Devolução\n"
