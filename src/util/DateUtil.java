@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * Classe Utilitária para manipular Datas do Sistema
  *
- * @author Francke
+ * @author lhries / Francke
+ * @since JDK 1.0
  */
 public class DateUtil {
     

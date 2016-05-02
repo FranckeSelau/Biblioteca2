@@ -2,7 +2,12 @@ package util;
 
 import java.util.Scanner;
 
-
+/**
+ * Classe Utilitária para manipular as entradas de dados do Sistema
+ *
+ * @author lhries
+ * @since JDK 1.0
+ */
 public class Console {
 	
 	public static String scanString(Object out)
