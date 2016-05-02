@@ -14,7 +14,7 @@ public class ClienteMenu {
     /**
      * Retorna as opções do Menu Cliente.
      *
-     * @return opções para o menu cliente
+     * @return opções para o menu cadastro clientes
      */
     public static String getOpcoes() {
         return ("\n--------------------------------------\n"
