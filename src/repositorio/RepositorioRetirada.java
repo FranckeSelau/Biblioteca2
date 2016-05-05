@@ -3,6 +3,7 @@ package repositorio;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import model.Livro;
 import model.RetiradaLivro;
 
 /**
@@ -40,7 +41,8 @@ public class RepositorioRetirada {
         }
         return null;
     }
-
+    
+    
     /**
      * Retorna o ID do último livro retirado
      *
@@ -71,12 +73,16 @@ public class RepositorioRetirada {
         if (r == null && validaRetirada(retirada)) {
             retirada.setId(getUltimoId() + 1);
             retiradas.add(retirada);
+            retirada.getLivro().setRetiradas(retirada.getLivro().getRetiradas()+1);
+            retirada.getCliente().setRetiradas(retirada.getCliente().getRetiradas()+1);
             return true;
         }
 
         if (r != null && (r.compareTo(retirada) < 0 && r.getLivroDevolvido()) && validaRetirada(retirada)) {
             retirada.setId(getUltimoId() + 1);
             retiradas.add(retirada);
+            retirada.getLivro().setRetiradas(retirada.getLivro().getRetiradas()+1);
+            retirada.getCliente().setRetiradas(retirada.getCliente().getRetiradas()+1);
             return true;
         }
 
@@ -107,5 +113,17 @@ public class RepositorioRetirada {
     public List<RetiradaLivro> getListaDeRetiradas() {
         Collections.sort(retiradas);
         return retiradas;
+    }
+    
+    public int getQtdOcourrence(Livro livro){
+        int count = 0;
+        for(RetiradaLivro r : retiradas){
+            if(livro.getIsbn() == r.getLivro().getIsbn()){
+                count++;
+            }
+        }
+        
+        
+        return count;
     }
 }

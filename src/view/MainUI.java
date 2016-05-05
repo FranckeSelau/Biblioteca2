@@ -23,7 +23,7 @@ public class MainUI {
     private RepositorioLivros listaLivros;
     private RepositorioRetirada listaRetiradas;
     private RepositorioDevolucao listaDevolucoes;
-
+    
     /**
      * Construtor para Menu Principal
      */
@@ -78,7 +78,7 @@ public class MainUI {
                     new DevolucaoUI(listaRetiradas, listaDevolucoes).executar();
                     break;
                 case MainMenu.OP_RELATORIOS:
-                    //  new LivroUI(listaLivros).executar();
+                    new RelatoriosUI(listaLivros, listaRetiradas, listaClientes).executar();
                     break;
                 case MainMenu.OP_SAIR:
                     System.out.println("Aplicação finalizada!");

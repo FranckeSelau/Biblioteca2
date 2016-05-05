@@ -1,5 +1,6 @@
 package model;
 
+
 import java.util.Date;
 
 /**
@@ -15,6 +16,7 @@ public class Livro {
     private String nome, autor, editora;
     private int isbn;
     private Date ano;
+    private int retiradas;
 
     /**
      * Construtor para inicializar livro
@@ -96,4 +98,14 @@ public class Livro {
     private int generateCodigo() {
         return (CODIGO_GERADO++);
     }
+
+    public int getRetiradas() {
+        return retiradas;
+    }
+
+    public void setRetiradas(int retiradas) {
+        this.retiradas = retiradas;
+    }
+    
+    
 }

@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Cliente {
 
     private String matricula, nome, telefone;
+    private int retiradas, atrasos;
 
     /**
      * Construtor para inicializar cliente
@@ -54,6 +55,24 @@ public class Cliente {
     public String getTelefone() {
         return telefone;
     }
+
+    public int getRetiradas() {
+        return retiradas;
+    }
+
+    public void setRetiradas(int retiradas) {
+        this.retiradas = retiradas;
+    }
+
+    public int getAtrasos() {
+        return atrasos;
+    }
+
+    public void setAtrasos(int atrasos) {
+        this.atrasos = atrasos;
+    }
+    
+    
 
     /**
      * Faz o controle de matrículas para não inserir uma nova repetida.
