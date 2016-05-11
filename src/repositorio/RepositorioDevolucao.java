@@ -42,14 +42,16 @@ public class RepositorioDevolucao {
         RetiradaLivro retirada = retiradaRepo.getRetiradaById(idRetirada);
         if (retirada != null && !retirada.getLivroDevolvido()) {
             try {
-                devolucao.setRetirada(retirada);
-                devolucao.setLivro(retirada.getLivro());
-                devolucao.setDevolucao(new Date(System.currentTimeMillis()));
-                RetiradaLivro ret = new RetiradaLivro();
+                 RetiradaLivro ret = new RetiradaLivro();
                 ret.setEntrega(new Date(System.currentTimeMillis()));
                 retirada.setLivroDevolvido(true);
                 retirada.setDevolvido(new Date(System.currentTimeMillis()));
+                devolucao.setRetirada(retirada);
+                devolucao.setLivro(retirada.getLivro());
+                devolucao.setDevolucao(new Date(System.currentTimeMillis()));
+               
                 if (devolucao.getAtraso() > 0) {
+                    retirada.getCliente().setAtrasos(retirada.getCliente().getAtrasos()+1);
                     System.err.println("Livro devolvido com " + devolucao.getAtraso() + " dia(s) de atraso.");
                 }
                 return true;

@@ -3,6 +3,7 @@ package repositorio;
 import java.util.ArrayList;
 import java.util.List;
 import model.Livro;
+import model.RetiradaLivro;
 
 /**
  * Classe para repositório do tipo livros, onde serão armazenados os livros da
@@ -89,5 +90,23 @@ public class RepositorioLivros {
             }
         }
         return null;
+    }
+
+    public List<Livro> getListaLivrosDisponiveis(RepositorioRetirada ret) {
+        List<Livro> listaDisponiveis = new ArrayList<Livro>();
+        if (listaLivros != null) {
+            for (Livro l : listaLivros) {
+                if(!listaDisponiveis.contains(l)){
+                     listaDisponiveis.add(l);
+                }
+               
+                for (RetiradaLivro r : ret.getListaDeRetiradas()) {
+                    if (l.getIsbn() == r.getLivro().getIsbn() && !r.getLivroDevolvido()) {
+                           listaDisponiveis.remove(l);
+                    }
+                }
+            }
+        }
+        return listaDisponiveis;
     }
 }
